@@ -1,8 +1,8 @@
 {
   "name": "Open speed Test",
   "short_name": "Open Speed Test",
-  "theme_color": "rgb(12,139,255)",
-  "background_color": "rgb(45,147,255)",
+  "theme_color": "#0c8bff",
+  "background_color": "#0c8bff",
   "display": "standalone",
   "orientation":"any",
   "icons": [
