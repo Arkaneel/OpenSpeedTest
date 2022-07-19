@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style type="text/css" media="all">
+      .card-layout {
+        text-align: center;
+      }
+      .card-layout textarea {
+        resize: vertical;
+        height: 150px;
+        width: 266px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+      .card-layout input {
+        width: 266px;
+        height: 30px;
+        padding: 15px;
+        margin-top: 20px;
+      }
+      .card-layout button {
+        width: 100px;
+        height: 35px;
+        border-radius: 50px;
+        border: none;
+        background-color: rgb(76, 163, 246);
+        color: #fff;
+        margin-top: 20px;
+      }
+      .alert {
+        width: 300px;
+        background:rgb(36,170,254);
+        padding: 10px;
+        margin: 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        display: none;
+        font-family: Monospace;
+        color: white;
+      }
+    </style>
+    <title>FeedBack</title>
+  </head>
+  <body>
+    <div class="card-layout">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <form action="" id="contactForm">
+        <div class="inputBox">
+          <input type="text" id="name" placeholder="Your name...." required />
+        </div>
+
+        <div class="inputBox">
+          <input
+            type="email"
+            id="emailid"
+            placeholder="Your Email....."
+            required
+          />
+        </div>
+
+        <div class="inputBox">
+          <textarea
+            id="msgContent"
+            cols="30"
+            rows="10"
+            placeholder="Message"
+            required
+          ></textarea>
+        </div>
+        <div class="alert">Form Submitted Successfully!</div>
+        <div class="inputBox">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      const firebaseConfig = {
+        //   copy your firebase config informations
+        apiKey: "AIzaSyAuarYwyVD-C4XQoz3GLK-nu13mFyWNltY",
+        authDomain: "neocamera-9946a.firebaseapp.com",
+        databaseURL: "https://neocamera-9946a-default-rtdb.firebaseio.com",
+        projectId: "neocamera-9946a",
+        storageBucket: "neocamera-9946a.appspot.com",
+        messagingSenderId: "1016894192889",
+        appId: "1:1016894192889:web:09d6d25885733e6b4f7628",
+        measurementId: "G-PRKZN1MG3Q",
+      };
+
+      // initialize firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // reference your database
+      var contactFormDB = firebase.database().ref("contactForm");
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", submitForm);
+
+      function submitForm(e) {
+        e.preventDefault();
+
+        var name = getElementVal("name");
+        var emailid = getElementVal("emailid");
+        var msgContent = getElementVal("msgContent");
+
+        saveMessages(name, emailid, msgContent);
+
+        //   enable alert
+        document.querySelector(".alert").style.display = "block";
+
+        //   remove the alert
+        setTimeout(() => {
+          document.querySelector(".alert").style.display = "none";
+        }, 3000);
+
+        //   reset the form
+        document.getElementById("contactForm").reset();
+      }
+
+      const saveMessages = (name, emailid, msgContent) => {
+        var newContactForm = contactFormDB.push();
+
+        newContactForm.set({
+          name: name,
+          emailid: emailid,
+          msgContent: msgContent,
+        });
+      };
+
+      const getElementVal = (id) => {
+        return document.getElementById(id).value;
+      };
+    </script>
+  </body>
+</html>
