@@ -33,5 +33,4 @@ font-family:Monospace:"><code>npm serve</code></pre>
 
 
  <h5 style="font-family:Fantasy;">Follow Me On Twitter ~</h5>
- <a href="https://twitter.com/_Arkaneel_Roy_?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_Arkaneel_Roy_</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+ <a href="https://twitter.com/_Arkaneel_Roy_?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @_Arkaneel_Roy_</a>
