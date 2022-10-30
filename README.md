@@ -24,7 +24,7 @@ display:grid;
 place-items:center;
 color:white;
 border-radius:5px;
-font-family:Monospace:"><code>npm serve</code></pre>
+font-family:Monospace:"><code>npx serve</code></pre>
 
 <p style="font-family:monospace;">You Can See The App Running At <p style="color:#005cd3;">http://localhost:3000/</p></p>
 
